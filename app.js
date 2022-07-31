@@ -1,8 +1,9 @@
 const express = require('express');
+
 const webRoutes = require('./routes/web');
 const apiRoutes = require('./routes/api');
-const PORT = process.env.PORT || 3001;
 
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 // serving the folder statically - making it publicly available
@@ -15,9 +16,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // load the web routes
-app.use(webRoutes);
+app.use('/', webRoutes);
 
-app.use('./api', apiRoutes);
+app.use('/api', apiRoutes);
 
 app.get("*", (req, res) => {
     res.status(404).send('page not found');

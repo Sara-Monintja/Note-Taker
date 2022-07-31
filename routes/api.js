@@ -7,7 +7,7 @@ const dbPath = path.join(__dirname, '..', 'db', 'db.json');
  
 function getNotes(){
 
-    // read content of db.json
+    // read content of json
     const content = fs.readFileSync(dbPath, 'utf-8');
     
     return JSON.parse(content) || [];
@@ -62,7 +62,7 @@ router.post('./notes', (req, res) => {
     res.json(created);
 })
 
-router.delete('api/notes/:id', (req, res) => {
+router.delete('/notes/:id', (req, res) => {
 
     deleteNote(req.params.id);
 
