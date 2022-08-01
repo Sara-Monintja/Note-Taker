@@ -45,6 +45,7 @@ function deleteNote(id){
     
     // resave notes
     fs.writeFileSync(dbPath, JSON.stringify(filtered), 'utf-8');
+
 }
 
 router.get('/notes', (req, res) => {
@@ -55,7 +56,7 @@ router.get('/notes', (req, res) => {
 
 });
 
-router.post('./notes', (req, res) => {
+router.post('/notes', (req, res) => {
 
     const created = saveNote(req.body.title, req.body.text);
 

@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // load the web routes
-app.use('/', webRoutes);
+app.use(webRoutes);
 
 app.use('/api', apiRoutes);
 
